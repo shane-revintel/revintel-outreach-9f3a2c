@@ -1,0 +1,45 @@
+{
+ "generated": "2026-07-04 22:59",
+ "week_change_confirmed": "+$0",
+ "confirmed": 36000,
+ "weighted": 149400,
+ "gap": 64000,
+ "days_left": 27,
+ "george_scorecard": [
+  {
+   "label": "Agencies worked",
+   "current": 0,
+   "target": 100
+  },
+  {
+   "label": "Calls",
+   "current": 0,
+   "target": 600
+  },
+  {
+   "label": "Videos recorded",
+   "current": 0,
+   "target": 125
+  },
+  {
+   "label": "Conversations",
+   "current": 0,
+   "target": 60
+  },
+  {
+   "label": "Meetings booked",
+   "current": 0,
+   "target": 10
+  },
+  {
+   "label": "Meetings held",
+   "current": 0,
+   "target": 6
+  }
+ ],
+ "questions": [
+  "What worked this week? (double down on it)",
+  "What's missing or stuck? (name it, own it)",
+  "What's the single biggest lever for next week? (aim George + yourself at it)"
+ ]
+}

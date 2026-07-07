@@ -1,0 +1,123 @@
+{
+  "synced_at": "2026-07-07 14:07",
+  "source": "hubspot (live)",
+  "note": "Auto-synced from HubSpot. Amounts are annual ARR.",
+  "goal": {
+    "target_arr": 100000,
+    "deadline": "2026-07-31"
+  },
+  "summary": {
+    "confirmed_arr": 36000,
+    "contract_sent_gross": 72000,
+    "contract_sent_weighted": 57600,
+    "open_pipeline_gross": 360000,
+    "open_pipeline_weighted": 113400,
+    "total_weighted": 149400,
+    "open_deal_count": 10,
+    "to_goal": 64000
+  },
+  "deals": [
+    {
+      "name": "Darwinian Ventures",
+      "contact": "Andrew Boos",
+      "arr": 36000,
+      "prob": 1.0,
+      "stage": "Won",
+      "status": "won"
+    },
+    {
+      "name": "SalesRoads",
+      "contact": "David Kreiger",
+      "arr": 36000,
+      "prob": 0.8,
+      "stage": "Negotiations",
+      "status": "open"
+    },
+    {
+      "name": "SalesFocus Inc",
+      "contact": "Tony Horwath",
+      "arr": 36000,
+      "prob": 0.8,
+      "stage": "Negotiations",
+      "status": "open"
+    },
+    {
+      "name": "Air Marketing",
+      "contact": "Owen Richards",
+      "arr": 36000,
+      "prob": 0.7,
+      "stage": "In Trial ",
+      "status": "open"
+    },
+    {
+      "name": "Memory Blue",
+      "contact": "Aurelien Mottier",
+      "arr": 36000,
+      "prob": 0.3,
+      "stage": "Qualify/Discovery",
+      "status": "open"
+    },
+    {
+      "name": "Vanguard Services",
+      "contact": "Ayman Khalil",
+      "arr": 36000,
+      "prob": 0.2,
+      "stage": "Meeting Scheduled",
+      "status": "open"
+    },
+    {
+      "name": "Whistle",
+      "contact": "David Zeff",
+      "arr": 36000,
+      "prob": 0.1,
+      "stage": "Partnership ",
+      "status": "open"
+    },
+    {
+      "name": "Seamless.ai",
+      "contact": "",
+      "arr": 36000,
+      "prob": 0.1,
+      "stage": "Booked on Podcast",
+      "status": "open"
+    },
+    {
+      "name": "LevelUp Leads",
+      "contact": "John Karsant",
+      "arr": 36000,
+      "prob": 0.05,
+      "stage": "Needs Work",
+      "status": "open"
+    },
+    {
+      "name": "The Point Co",
+      "contact": "Steve Burton",
+      "arr": 36000,
+      "prob": 0.05,
+      "stage": "Needs Work",
+      "status": "open"
+    },
+    {
+      "name": "Outboundless",
+      "contact": "Patrick Joyce",
+      "arr": 36000,
+      "prob": 0.05,
+      "stage": "Needs Work",
+      "status": "open"
+    }
+  ],
+  "flagged": [],
+  "closed_lost": [
+    "Branch49",
+    "Alleyoop",
+    "We Are Team Rocket",
+    "Profitbl",
+    "Leadium",
+    "Answernet",
+    "Hubtech Communications",
+    "Cernal",
+    "SysGroup",
+    "Agilitz Technologies",
+    "Sonatype"
+  ]
+}

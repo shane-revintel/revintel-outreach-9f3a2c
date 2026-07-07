@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F5F7F9">
+<title>RevIntel · CEO Command Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#11242E; --body:#3F4A52; --teal:#58BDCD; --cyan:#52B2C3; --mist:#F5F7F9; --card:#FFFFFF; --line:#E3EAEE; --muted:#7A8A93; --green:#2FA36B; --amber:#C08A24; --red:#D2544E; --purple:#7C6BD6; --shadow:0 2px 10px rgba(17,36,46,.06); }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--mist); color:var(--body); font-family:'Hanken Grotesk',system-ui,sans-serif; padding:16px; max-width:1280px; margin:0 auto;}
+  a{color:var(--teal); text-decoration:none;}
+  h2.sec{font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:1.6px; color:var(--teal); margin:28px 0 12px; display:flex; align-items:center; gap:10px; font-weight:600;}
+  h2.sec::after{content:""; flex:1; height:1px; background:var(--line);}
+  .top{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px;}
+  .brand{font-size:19px; font-weight:800; letter-spacing:.4px; color:var(--ink);} .brand span{color:var(--teal);}
+  .who{font-size:12px; color:var(--muted); font-family:'JetBrains Mono',monospace;}
+  /* revenue hero */
+  .hero{background:linear-gradient(105deg,#ffffff,#eef8fa); border:1px solid var(--line); border-radius:18px; padding:22px 24px; margin-top:12px; box-shadow:var(--shadow);}
+  .hero .big{font-family:'Newsreader',serif; font-size:29px; font-weight:600; color:var(--ink); line-height:1.15;}
+  .hero .big em{font-style:italic; color:var(--cyan);}
+  .hero .line{font-size:14.5px; color:var(--body); margin-top:10px; line-height:1.55; max-width:820px;}
+  .hero .line b{color:var(--ink);} .hero .line .em{color:var(--teal); font-weight:700;}
+  .hero .metrics{display:flex; gap:24px; flex-wrap:wrap; margin-top:18px; align-items:center;}
+  .hero .m .n{font-family:'JetBrains Mono',monospace; font-size:23px; font-weight:700; color:var(--ink);}
+  .hero .m .l{font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px;}
+  .bar{height:9px; background:#e9eef1; border:1px solid var(--line); border-radius:6px; overflow:hidden; flex:1; min-width:160px;}
+  .bar>i{display:block; height:100%; background:var(--teal);}
+  /* grids / cards */
+  .grid{display:grid; gap:14px;}
+  .cols-4{grid-template-columns:repeat(4,1fr);} .cols-3{grid-template-columns:repeat(3,1fr);} .cols-2{grid-template-columns:repeat(2,1fr);}
+  @media(max-width:960px){ .cols-4,.cols-3{grid-template-columns:1fr 1fr;} }
+  @media(max-width:620px){ .cols-4,.cols-3,.cols-2{grid-template-columns:1fr;} }
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:15px 17px; box-shadow:var(--shadow);}
+  .wf .n{font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:800; color:var(--ink);}
+  .wf .l{font-size:11px; color:var(--muted); margin-top:2px; text-transform:uppercase; letter-spacing:.4px;}
+  /* pipeline */
+  #pipeline .stagehdr{font-family:'JetBrains Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.8px; color:var(--muted); margin:15px 0 6px; font-weight:600;}
+  #pipeline .stagehdr span{background:#eef4f6; border:1px solid var(--line); border-radius:8px; padding:1px 7px; margin-left:4px; font-size:10px;}
+  .deal{display:flex; align-items:center; gap:9px; padding:8px 0; border-top:1px solid var(--line); font-size:14px;}
+  .deal:first-of-type{border-top:none;}
+  .ddot{width:8px;height:8px;border-radius:50%;flex:none;}
+  .dname{flex:1; font-weight:600; color:var(--ink);} .darr{font-family:'JetBrains Mono',monospace; color:var(--ink);} .dprob{font-family:'JetBrains Mono',monospace; color:var(--muted); min-width:38px; text-align:right; font-size:11px;}
+  .backburner{font-size:12px; color:var(--muted); margin-top:12px;}
+  /* org / team */
+  .ceo{background:linear-gradient(105deg,#ffffff,#eef8fa); border:1px solid var(--teal); border-radius:14px; padding:14px 16px; text-align:center; max-width:440px; margin:0 auto 4px; box-shadow:var(--shadow);}
+  .ceo .role,.person .role{font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:1px;}
+  .ceo .nm{font-size:17px; font-weight:800; color:var(--ink);} .ceo .mand{font-size:13px; color:var(--body); margin-top:4px;}
+  .branch{width:2px; height:16px; background:var(--line); margin:0 auto;}
+  .person .nm{font-size:15px; font-weight:800; color:var(--ink);}
+  .person .mand{font-size:12.5px; color:var(--body); margin:6px 0 8px; line-height:1.5;}
+  .person .cost{font-size:11px; color:var(--muted); font-family:'JetBrains Mono',monospace;}
+  .tgt{font-size:11.5px; color:var(--body); border-top:1px solid var(--line); padding-top:8px; margin-top:8px; line-height:1.6;}
+  .tgt b{color:var(--ink);} .mand b{color:var(--ink);}
+  /* activity tracker */
+  .track{display:flex; flex-direction:column; gap:10px;}
+  .track .row{display:flex; align-items:center; gap:10px;}
+  .track .lab{width:120px; font-size:12px; color:var(--body);}
+  .track .tb{flex:1; height:16px; background:#eef4f6; border:1px solid var(--line); border-radius:5px; overflow:hidden;}
+  .track .tb>i{display:block;height:100%;background:var(--teal);}
+  .track .val{font-family:'JetBrains Mono',monospace; font-size:12px; min-width:74px; text-align:right; color:var(--muted);}
+  /* items */
+  .item{padding:9px 0; border-top:1px solid var(--line); display:flex; gap:10px;}
+  .item:first-child{border-top:none;}
+  .when{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--teal); min-width:58px; padding-top:2px; font-weight:600;}
+  .when.do{color:var(--muted);}
+  .ttl{font-size:14px; font-weight:700; color:var(--ink);} .note{font-size:12px; color:var(--muted); margin-top:2px; line-height:1.45;}
+  .tag{display:inline-block; font-size:9px; font-weight:800; text-transform:uppercase; padding:2px 7px; border-radius:10px; margin-left:6px;}
+  .tag.big{background:#fbe9e8;color:var(--red);border:1px solid #f0c9c6;} .tag.ev{background:#e7f5f7;color:#2f889a;border:1px solid #cfeaef;}
+  .cta{display:inline-block; margin-top:8px; background:var(--teal); color:#fff; font-weight:800; font-size:13px; padding:10px 17px; border-radius:10px;}
+  .cta.alt{background:#fff; color:var(--ink); border:1px solid var(--line);}
+  .foot{color:var(--muted); font-size:11px; text-align:center; margin-top:24px; font-family:'JetBrains Mono',monospace;}
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="brand">REV<span>INTEL</span> · CEO COMMAND CENTRE</div>
+    <div class="who" id="date"></div>
+  </div>
+
+  <!-- REVENUE -->
+  <div class="hero">
+    <div class="big">$100K ARR by Jul 31 · <em id="countdown"></em></div>
+    <div class="line">Shane, CEO. The job: <span class="em">a deal a week.</span> 3 contracts at $36k or 4 at $24k = ~$100k. It's not a big deal — it's one signature a week. Get it going now.</div>
+    <div class="metrics">
+      <div class="m"><div class="n" id="confN">—</div><div class="l">Confirmed ARR</div></div>
+      <div class="m"><div class="n" id="weightN" style="color:var(--teal)">—</div><div class="l">Weighted pipeline</div></div>
+      <div class="m"><div class="n" id="gapN">—</div><div class="l">To $100k</div></div>
+      <div class="bar"><i id="goalfill"></i></div>
+    </div>
+  </div>
+
+  <!-- TODAY'S BRIEF -->
+  <div class="card" id="briefCard" style="margin-top:14px; border-left:4px solid var(--teal); display:none;">
+    <div class="role" style="font-family:'JetBrains Mono',monospace;color:var(--teal);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px" id="briefHdr">Today's brief</div>
+    <div class="ttl" style="font-size:16px; margin-top:6px;" id="briefMove"></div>
+    <div class="note" style="margin-top:6px;" id="briefMeta"></div>
+  </div>
+
+  <!-- LIVE PIPELINE (active only) -->
+  <h2 class="sec">Live pipeline — active deals <span style="font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0" id="synced"></span></h2>
+  <div class="grid cols-4" id="waterfall"></div>
+  <div class="card" style="margin-top:12px;"><div id="pipeline">Loading real numbers…</div></div>
+
+  <!-- ORG / TEAM -->
+  <h2 class="sec">The team — who owns what</h2>
+  <div class="ceo">
+    <div class="role">CEO</div><div class="nm">Shane Mahi</div>
+    <div class="mand">Owns revenue. Closes the deals. Calls the leads. A deal a week.</div>
+  </div>
+  <div class="branch"></div>
+  <div class="grid cols-3" id="team"></div>
+
+  <!-- GEORGE ACTIVITY TRACKER -->
+  <h2 class="sec">George — activity tracker (this week)</h2>
+  <div class="card"><div class="track" id="track"></div>
+    <div class="note" style="margin-top:12px;">Weekly engine: <b style="color:var(--ink)">200 calls/day + 25 videos/day</b> across the 100 agencies → target <b style="color:var(--ink)">10 meetings booked, 6 held</b>. A strong week = 16.</div>
+  </div>
+
+  <!-- LEADS -->
+  <h2 class="sec">Your leads — the work being worked</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="ttl">92 agencies — your target list</div>
+      <div class="note">All live in HubSpot (companies + named contacts + LinkedIn + RevIntel intel). Swipe, message, and mark done from your phone.</div>
+      <a class="cta" href="#" id="deckLink" target="_blank">Work the leads →</a>
+    </div>
+    <div class="card">
+      <div class="ttl">In HubSpot</div>
+      <div class="note">Every agency is a company record with its named decision-maker, LinkedIn URL, and the why-now + opening message. Your rep works straight from the CRM.</div>
+      <a class="cta alt" href="https://app.hubspot.com/contacts/148344385/objects/0-2/views/all/list" target="_blank">Open HubSpot →</a>
+    </div>
+  </div>
+
+  <!-- WEEK PLANNER -->
+  <h2 class="sec">The week</h2>
+  <div class="grid cols-3">
+    <div class="card"><div class="role" style="font-family:'JetBrains Mono',monospace;color:var(--teal);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px">Weekend · Jul 4–5</div><div id="w0" style="margin-top:8px"></div></div>
+    <div class="card"><div class="role" style="font-family:'JetBrains Mono',monospace;color:var(--teal);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px">Monday · Jul 6</div><div id="w1" style="margin-top:8px"></div></div>
+    <div class="card"><div class="role" style="font-family:'JetBrains Mono',monospace;color:var(--teal);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px">The week · Jul 7–11</div><div id="w2" style="margin-top:8px"></div></div>
+  </div>
+
+  <!-- WEEKLY REVIEW -->
+  <h2 class="sec">Weekly review — every Friday</h2>
+  <div class="card" id="reviewCard">
+    <div class="note">Generating…</div>
+  </div>
+
+  <div class="foot" id="foot">RevIntel CEO Command Centre · live from HubSpot · brief refreshes daily 7am · review every Friday</div>
+
+<script>
+const TEAM = [
+  {nm:"Morten Kremer", role:"CPTO — Product & Build", mand:"Ships the product for the paying accounts. Building <b>Sales Overdrive</b> and <b>Air Marketing</b> so both go live and get fulfilled.",
+   cost:"", tgt:"Target: both builds <b>live</b> → <b>10 + 10 licences</b> each, so Shane can see them running."},
+  {nm:"George Ainsley", role:"BD & Sales", mand:"Runs <b>Stack BD</b> + cold calling the 100 agencies. On the phones producing conversations and meetings.",
+   cost:"~$2,000/mo + $80 Stack BD", tgt:"Weekly: <b>600 calls · 125 videos · 100 agencies</b> → <b>60 conversations · 10 meetings · 6 held</b>."},
+  {nm:"Ayaz", role:"Darwinian Ops", mand:"Builds the <b>Darwinian</b> lists and supports <b>McGrath's Meta ad creatives</b> so the leads convert.",
+   cost:"", tgt:"Target: grow the DV account — strong creatives → warm leads Shane can <b>convert to paid</b>."},
+];
+const TRACK = [ ["Agencies worked",0,100],["Calls",0,600],["Videos recorded",0,125],["Conversations",0,60],["Meetings booked",0,10],["Meetings held",0,6] ];
+const WEEK = {
+  w0:[{when:"live",type:"ev",ttl:"DemandBird posts scheduled ✓",note:"Social content queued and going out."},
+      {when:"do",ttl:"Prep Monday",note:"Ayman 8:30 + SalesRoads. Then recharge — call Bella."}],
+  w1:[{when:"08:30",type:"ev",ttl:"Ayman Khalil",note:"Strong one. Prep properly."},
+      {when:"do",type:"big",ttl:"SalesRoads — close David",note:"Deal of the week candidate."},
+      {when:"do",ttl:"George live on the phones",note:"200 calls, 25 videos. Start the engine."}],
+  w2:[{when:"Tue 7",type:"big",ttl:"Tony — part-ownership",note:"Equity conversation. ~$3k/mo + 1%."},
+      {when:"Tue 7",ttl:"Office opens",note:"£330/mo."},
+      {when:"Wk",ttl:"Air Marketing POC + Sales Overdrive build",note:"Morten fulfilling both."},
+      {when:"Wk",type:"ev",ttl:"Jim Barker",note:"Apollo. Important."}],
+};
+const money=n=>'$'+Math.round(n).toLocaleString();
+document.getElementById('team').innerHTML = TEAM.map(p=>`
+  <div class="card person"><div class="role">${p.role}</div><div class="nm">${p.nm}</div>
+    <div class="mand">${p.mand}</div>${p.cost?`<div class="cost">${p.cost}</div>`:''}
+    <div class="tgt">${p.tgt}</div></div>`).join('');
+function renderTrack(rows){
+  document.getElementById('track').innerHTML = rows.map(([l,c,t])=>`
+    <div class="row"><div class="lab">${l}</div>
+      <div class="tb"><i style="width:${Math.min(100,100*c/t)}%"></i></div>
+      <div class="val">${c} / ${t}</div></div>`).join('');
+}
+async function fetchJSON(name){
+  for(const p of ['/data/daily/'+name, name, 'data/daily/'+name]){
+    try{ const r=await fetch(p+'?t='+Date.now()); if(r.ok) return await r.json(); }catch(e){}
+  }
+  return null;
+}
+async function loadGeorge(){
+  const g=await fetchJSON('george.json');
+  renderTrack(g&&g.metrics ? g.metrics.map(m=>[m.label,m.current,m.target]) : TRACK);
+}
+async function loadBrief(){
+  const b=await fetchJSON('brief.json'); if(!b) return;
+  document.getElementById('briefHdr').textContent=b.day+"'s brief · "+b.generated;
+  document.getElementById('briefMove').textContent='🎯 '+b.one_move;
+  document.getElementById('briefMeta').innerHTML=`${b.days_left} days to $100k · ${b.change_daily} · George: ${b.george}`;
+  document.getElementById('briefCard').style.display='block';
+}
+async function loadReview(){
+  const v=await fetchJSON('review.json');
+  const el=document.getElementById('reviewCard');
+  if(!v){ el.innerHTML='<div class="note">First review lands this Friday.</div>'; return; }
+  el.innerHTML=`
+    <div class="note" style="margin-bottom:10px;">Generated ${v.generated} · confirmed <b style="color:var(--ink)">$${(v.confirmed).toLocaleString()}</b> (${v.week_change_confirmed} this week) · ${v.days_left} days left</div>
+    ${(v.questions||[]).map((q,i)=>`<div class="item"><div class="when">Q${i+1}</div><div class="ttl" style="font-weight:600">${q}</div></div>`).join('')}`;
+}
+loadGeorge(); loadBrief(); loadReview();
+function items(a){return a.map(x=>`<div class="item"><div class="when ${x.when==='do'?'do':''}">${x.when==='do'?'DO':x.when}</div>
+  <div><div class="ttl">${x.ttl}${x.type==='big'?'<span class="tag big">deal</span>':''}${x.type==='ev'?'<span class="tag ev">event</span>':''}</div>
+  ${x.note?`<div class="note">${x.note}</div>`:''}</div></div>`).join('');}
+document.getElementById('w0').innerHTML=items(WEEK.w0);
+document.getElementById('w1').innerHTML=items(WEEK.w1);
+document.getElementById('w2').innerHTML=items(WEEK.w2);
+const now=new Date(2026,6,4), end=new Date(2026,6,31);
+document.getElementById('date').textContent='Saturday 4 July 2026';
+document.getElementById('countdown').textContent=Math.round((end-now)/86400000)+' days left';
+
+async function loadPipeline(){
+  let d=null;
+  for(const p of ['/data/crm/deals.json','deals.json','data/crm/deals.json']){
+    try{ const r=await fetch(p+'?t='+Date.now()); if(r.ok){ d=await r.json(); break; } }catch(e){}
+  }
+  if(!d){ document.getElementById('pipeline').innerHTML='<div class="note">Could not load pipeline.</div>'; return; }
+  const s=d.summary;
+  document.getElementById('confN').textContent=money(s.confirmed_arr);
+  document.getElementById('weightN').textContent=money(s.total_weighted);
+  document.getElementById('gapN').textContent=money(s.to_goal);
+  document.getElementById('goalfill').style.width=Math.min(100,Math.round(100*s.confirmed_arr/d.goal.target_arr))+'%';
+  document.getElementById('synced').textContent='· synced '+d.synced_at;
+  document.getElementById('deckLink').href=(location.hostname==='localhost'?'http://192.168.0.191:7891/':'/');
+  const active=d.deals.filter(x=>x.status==='won'||x.prob>=0.2);
+  const back=d.deals.filter(x=>x.status!=='won'&&x.prob<0.2);
+  const confirmed=active.filter(x=>x.status==='won').reduce((a,x)=>a+x.arr,0);
+  const cs=active.filter(x=>x.prob>=0.8&&x.status!=='won');
+  const csGross=cs.reduce((a,x)=>a+x.arr,0);
+  const wtd=active.reduce((a,x)=>a+x.arr*x.prob,0);
+  document.getElementById('waterfall').innerHTML=`
+    <div class="card wf"><div class="n">${money(confirmed)}</div><div class="l">Confirmed (won)</div></div>
+    <div class="card wf"><div class="n" style="color:var(--green)">${money(csGross)}</div><div class="l">Contract sent · 80%</div></div>
+    <div class="card wf"><div class="n" style="color:var(--teal)">${money(wtd)}</div><div class="l">Active weighted · ${active.length} deals</div></div>
+    <div class="card wf"><div class="n">${active.filter(x=>x.status!=='won').length}</div><div class="l">Live opportunities</div></div>`;
+  const stageColor=p=>p>=0.8?'#2FA36B':p>=0.3?'#58BDCD':'#C08A24';
+  const order=["Won","Client is LIVE","Negotiations","In Trial","Connected to CRM","Live Demo","Qualify/Discovery","Meeting Scheduled"];
+  const grp={}; active.forEach(x=>{(grp[x.stage]=grp[x.stage]||[]).push(x);});
+  const stages=Object.keys(grp).sort((a,b)=>{const i=order.findIndex(o=>o.trim()===a.trim()),j=order.findIndex(o=>o.trim()===b.trim());return (i<0?99:i)-(j<0?99:j);});
+  let html='';
+  stages.forEach(st=>{ html+=`<div class="stagehdr">${st} <span>${grp[st].length}</span></div>`;
+    grp[st].forEach(x=>{ html+=`<div class="deal"><span class="ddot" style="background:${stageColor(x.prob)}"></span>
+      <span class="dname">${x.name}${x.contact?' · '+x.contact:''}</span>
+      <span class="darr">${money(x.arr)}</span><span class="dprob">${Math.round(x.prob*100)}%</span></div>`; }); });
+  if(back.length) html+=`<div class="backburner">+ ${back.length} early / nurture deals hidden (Needs Work, podcast). Not counted as active.</div>`;
+  document.getElementById('pipeline').innerHTML=html;
+}
+loadPipeline();
+</script>
+</body>
+</html>
