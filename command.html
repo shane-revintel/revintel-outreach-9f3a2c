@@ -229,7 +229,7 @@ async function loadPipeline(){
   document.getElementById('gapN').textContent=money(s.to_goal);
   document.getElementById('goalfill').style.width=Math.min(100,Math.round(100*s.confirmed_arr/d.goal.target_arr))+'%';
   document.getElementById('synced').textContent='· synced '+d.synced_at;
-  document.getElementById('deckLink').href=(location.hostname==='localhost'?'http://192.168.0.191:7891/':'/');
+  document.getElementById('deckLink').href='https://shane-revintel.github.io/revintel-outreach-9f3a2c/';
   const active=d.deals.filter(x=>x.status==='won'||x.prob>=0.2);
   const back=d.deals.filter(x=>x.status!=='won'&&x.prob<0.2);
   const confirmed=active.filter(x=>x.status==='won').reduce((a,x)=>a+x.arr,0);

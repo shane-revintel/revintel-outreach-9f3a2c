@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-07-07 14:07",
+  "synced_at": "2026-07-14 23:48",
   "source": "hubspot (live)",
   "note": "Auto-synced from HubSpot. Amounts are annual ARR.",
   "goal": {
@@ -8,12 +8,12 @@
   },
   "summary": {
     "confirmed_arr": 36000,
-    "contract_sent_gross": 72000,
-    "contract_sent_weighted": 57600,
-    "open_pipeline_gross": 360000,
-    "open_pipeline_weighted": 113400,
-    "total_weighted": 149400,
-    "open_deal_count": 10,
+    "contract_sent_gross": 228000,
+    "contract_sent_weighted": 182400,
+    "open_pipeline_gross": 372000,
+    "open_pipeline_weighted": 232800,
+    "total_weighted": 268800,
+    "open_deal_count": 7,
     "to_goal": 64000
   },
   "deals": [
@@ -26,16 +26,24 @@
       "status": "won"
     },
     {
-      "name": "SalesRoads",
-      "contact": "David Kreiger",
-      "arr": 36000,
+      "name": "SalesFocus Inc",
+      "contact": "Tony Horwath",
+      "arr": 120000,
       "prob": 0.8,
       "stage": "Negotiations",
       "status": "open"
     },
     {
-      "name": "SalesFocus Inc",
-      "contact": "Tony Horwath",
+      "name": "Maitland Agency - Pipeline + RevIntel",
+      "contact": "",
+      "arr": 72000,
+      "prob": 0.8,
+      "stage": "Negotiations",
+      "status": "open"
+    },
+    {
+      "name": "SalesRoads",
+      "contact": "David Kreiger",
       "arr": 36000,
       "prob": 0.8,
       "stage": "Negotiations",
@@ -66,55 +74,27 @@
       "status": "open"
     },
     {
-      "name": "Whistle",
-      "contact": "David Zeff",
+      "name": "Angsana",
+      "contact": "Mike Cole",
       "arr": 36000,
-      "prob": 0.1,
-      "stage": "Partnership ",
-      "status": "open"
-    },
-    {
-      "name": "Seamless.ai",
-      "contact": "",
-      "arr": 36000,
-      "prob": 0.1,
-      "stage": "Booked on Podcast",
-      "status": "open"
-    },
-    {
-      "name": "LevelUp Leads",
-      "contact": "John Karsant",
-      "arr": 36000,
-      "prob": 0.05,
-      "stage": "Needs Work",
-      "status": "open"
-    },
-    {
-      "name": "The Point Co",
-      "contact": "Steve Burton",
-      "arr": 36000,
-      "prob": 0.05,
-      "stage": "Needs Work",
-      "status": "open"
-    },
-    {
-      "name": "Outboundless",
-      "contact": "Patrick Joyce",
-      "arr": 36000,
-      "prob": 0.05,
-      "stage": "Needs Work",
+      "prob": 0.2,
+      "stage": "Meeting Scheduled",
       "status": "open"
     }
   ],
   "flagged": [],
   "closed_lost": [
     "Branch49",
+    "Whistle",
     "Alleyoop",
     "We Are Team Rocket",
     "Profitbl",
     "Leadium",
+    "LevelUp Leads",
     "Answernet",
     "Hubtech Communications",
+    "The Point Co",
+    "Outboundless",
     "Cernal",
     "SysGroup",
     "Agilitz Technologies",

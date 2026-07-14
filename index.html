@@ -147,10 +147,12 @@ function render(){
   upd();
   // Auto-copy so the message is ready to paste the moment LinkedIn opens.
   navigator.clipboard && navigator.clipboard.writeText(ta.value).catch(()=>{});
-  document.getElementById('copyopen').addEventListener('click', async (e)=>{
-    try{ await navigator.clipboard.writeText(ta.value); }catch(_){ ta.select(); document.execCommand('copy'); }
-    window.open(linkedinURL(a), '_blank', 'noopener');
-    const b=e.target; b.textContent='Copied ✓ — paste in LinkedIn'; b.classList.add('ok');
+  document.getElementById('copyopen').addEventListener('click', (e)=>{
+    // Open LinkedIn FIRST, inside the user gesture, so mobile browsers don't block it.
+    window.open(linkedinURL(a), '_blank');
+    // Then copy (async is fine now that the tab is already opening).
+    try{ navigator.clipboard.writeText(ta.value); }catch(_){ ta.select(); document.execCommand('copy'); }
+    const b=document.getElementById('copyopen'); b.textContent='Copied ✓ — paste in LinkedIn'; b.classList.add('ok');
     setTimeout(()=>{b.textContent='Copy + Open LinkedIn ↗'; b.classList.remove('ok');},1800);
   });
   const db = document.getElementById('done');
