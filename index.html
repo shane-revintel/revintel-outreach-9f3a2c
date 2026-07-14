@@ -136,7 +136,7 @@ function render(){
       <textarea id="msg">${msg.replace(/</g,'&lt;')}</textarea>
       <div class="cc" id="cc"></div>
       <div class="actions">
-        <button class="li" id="copyopen">Copy + Open LinkedIn ↗</button>
+        <a class="li" id="copyopen" href="${linkedinURL(a)}" target="_blank" rel="noopener" style="text-decoration:none;">Copy + Open LinkedIn ↗</a>
       </div>
       ${a.linkedin_url?'':'<div class="nodirect">No direct profile yet — opens a search</div>'}
     </div>`;
@@ -148,9 +148,7 @@ function render(){
   // Auto-copy so the message is ready to paste the moment LinkedIn opens.
   navigator.clipboard && navigator.clipboard.writeText(ta.value).catch(()=>{});
   document.getElementById('copyopen').addEventListener('click', (e)=>{
-    // Open LinkedIn FIRST, inside the user gesture, so mobile browsers don't block it.
-    window.open(linkedinURL(a), '_blank');
-    // Then copy (async is fine now that the tab is already opening).
+    // The <a> opens LinkedIn natively (never pop-up-blocked). We just copy the message alongside.
     try{ navigator.clipboard.writeText(ta.value); }catch(_){ ta.select(); document.execCommand('copy'); }
     const b=document.getElementById('copyopen'); b.textContent='Copied ✓ — paste in LinkedIn'; b.classList.add('ok');
     setTimeout(()=>{b.textContent='Copy + Open LinkedIn ↗'; b.classList.remove('ok');},1800);
