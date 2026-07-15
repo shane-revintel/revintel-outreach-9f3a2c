@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-07-14 23:48",
+  "synced_at": "2026-07-15 00:18",
   "source": "hubspot (live)",
   "note": "Auto-synced from HubSpot. Amounts are annual ARR.",
   "goal": {
@@ -11,8 +11,8 @@
     "contract_sent_gross": 228000,
     "contract_sent_weighted": 182400,
     "open_pipeline_gross": 372000,
-    "open_pipeline_weighted": 232800,
-    "total_weighted": 268800,
+    "open_pipeline_weighted": 236400,
+    "total_weighted": 272400,
     "open_deal_count": 7,
     "to_goal": 64000
   },
@@ -66,16 +66,16 @@
       "status": "open"
     },
     {
-      "name": "Vanguard Services",
-      "contact": "Ayman Khalil",
+      "name": "Angsana",
+      "contact": "Mike Cole",
       "arr": 36000,
-      "prob": 0.2,
-      "stage": "Meeting Scheduled",
+      "prob": 0.3,
+      "stage": "Qualify/Discovery",
       "status": "open"
     },
     {
-      "name": "Angsana",
-      "contact": "Mike Cole",
+      "name": "Vanguard Services",
+      "contact": "Ayman Khalil",
       "arr": 36000,
       "prob": 0.2,
       "stage": "Meeting Scheduled",
